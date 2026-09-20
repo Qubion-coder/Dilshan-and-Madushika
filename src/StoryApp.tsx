@@ -22,6 +22,7 @@ export default function StoryApp() {
   const [introPlayed, setIntroPlayed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -54,8 +55,13 @@ export default function StoryApp() {
   }, []);
 
   useEffect(() => {
-    if (invitationOpened && audioRef.current) {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    if (invitationOpened) {
+      if (audioRef.current) {
+        audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+      }
+      if (videoRef.current) {
+        videoRef.current.play().catch(e => console.error("Video play failed:", e));
+      }
     }
   }, [invitationOpened]);
 
@@ -104,11 +110,11 @@ export default function StoryApp() {
               className="z-10 flex flex-col items-center gap-8"
             >
               <h1 className="text-center px-4 leading-[1.1] drop-shadow-sm">
-                <span className="serif italic text-6xl sm:text-[6.5rem] text-[#2C2C2C] font-light">Dilshan</span>
+                <span className="serif italic text-6xl sm:text-[6.5rem] text-[#2C2C2C] font-medium">Dilshan</span>
                 <br />
                 <span className="serif italic text-4xl sm:text-5xl text-[#8B7355] inline-block py-2">&amp;</span>
                 <br />
-                <span className="serif italic text-6xl sm:text-[6.5rem] text-[#2C2C2C] font-light">Madushika</span>
+                <span className="serif italic text-6xl sm:text-[6.5rem] text-[#2C2C2C] font-medium">Madushika</span>
               </h1>
               <p className="text-sm uppercase tracking-[0.3em] text-[#2C2C2C] font-medium text-center">
                 Wedding Invitation
@@ -135,13 +141,14 @@ export default function StoryApp() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
           >
             <video
+              ref={videoRef}
               src="/i_want_to_add_a_pink_touch_to.mp4"
               autoPlay
               muted
               playsInline
               controls={false}
               onEnded={() => setIntroPlayed(true)}
-              className="w-full h-full object-cover pointer-events-none"
+              className="w-full h-full object-fill pointer-events-none"
             />
 
             <button
@@ -205,17 +212,17 @@ export default function StoryApp() {
                 </h1>
 
                 <div className="flex flex-col items-center w-full mb-8 sm:mb-10">
-                  <p className="text-[14px] sm:text-[16px] uppercase tracking-widest text-[#2C2C2C] font-bold mb-2">JANUARY</p>
+                  <p className="text-[18px] sm:text-[22px] uppercase tracking-widest text-[#2C2C2C] font-bold mb-2">JANUARY</p>
                   <div className="flex items-center justify-center w-full gap-4">
                     <div className="flex-1 text-right border-y border-[#2C2C2C]/30 py-2">
-                      <p className="text-[12px] sm:text-sm uppercase tracking-widest text-[#2C2C2C] font-bold">THURSDAY</p>
+                      <p className="text-[14px] sm:text-[16px] uppercase tracking-widest text-[#2C2C2C] font-bold">THURSDAY</p>
                     </div>
-                    <p className="serif text-7xl sm:text-[4.5rem] font-medium text-[#2C2C2C] leading-none px-1">14</p>
+                    <p className="serif text-[5.5rem] sm:text-[7rem] font-medium text-[#2C2C2C] leading-none px-1">14</p>
                     <div className="flex-1 text-left border-y border-[#2C2C2C]/30 py-2">
-                      <p className="text-[12px] sm:text-sm uppercase tracking-widest text-[#2C2C2C] font-bold">AT 9:00 AM</p>
+                      <p className="text-[14px] sm:text-[16px] uppercase tracking-widest text-[#2C2C2C] font-bold">AT 9:00 AM</p>
                     </div>
                   </div>
-                  <p className="text-[13px] sm:text-[15px] uppercase tracking-widest text-[#2C2C2C] font-bold mt-2">2027</p>
+                  <p className="text-[18px] sm:text-[22px] uppercase tracking-widest text-[#2C2C2C] font-bold mt-2">2027</p>
                 </div>
 
                 <a
@@ -224,12 +231,12 @@ export default function StoryApp() {
                   rel="noopener noreferrer"
                   className="space-y-2 mt-2 sm:mt-4 text-[#2C2C2C] hover:opacity-70 transition-opacity block"
                 >
-                  <p className="text-[12px] sm:text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-1.5">
-                    <MapPin size={12} className="text-[#8B7355]" />
+                  <p className="text-[16px] sm:text-[18px] uppercase tracking-widest font-bold flex items-center justify-center gap-1.5">
+                    <MapPin size={14} className="text-[#8B7355]" />
                     CINNAMON LAKESIDE
                   </p>
-                  <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.15em] font-medium">COLOMBO</p>
-                  <p className="text-[11px] sm:text-[12px] uppercase tracking-[0.15em] font-medium px-4">115 SIR CHITTAMPALAM A GARDINER MAWATHA, COLOMBO</p>
+                  <p className="text-[14px] sm:text-[16px] uppercase tracking-[0.15em] font-medium">COLOMBO</p>
+                  <p className="text-[12px] sm:text-[14px] uppercase tracking-[0.15em] font-medium px-4">115 SIR CHITTAMPALAM A GARDINER MAWATHA, COLOMBO</p>
                 </a>
 
                 <div className="mt-8 sm:mt-10">
@@ -265,7 +272,7 @@ export default function StoryApp() {
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-30 pointer-events-none mix-blend-overlay" />
 
                 <div className="relative z-10 w-full flex flex-col items-center text-center">
-                  <h2 className="script text-3xl sm:text-5xl text-[#C8B29E] mb-3">Together with</h2>
+                  <h2 className="cursive text-5xl sm:text-6xl text-[#C8B29E] mb-3 mt-2">Together with</h2>
                   <h3 className="serif text-[13px] uppercase tracking-[0.3em] text-[#3D2B1F] mb-10 font-bold">Our Families</h3>
 
                   <div className="flex flex-col items-center w-full mb-8">
@@ -304,7 +311,7 @@ export default function StoryApp() {
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-30 pointer-events-none mix-blend-overlay" />
 
                 <div className="relative z-10 w-full flex flex-col items-center text-center">
-                  <h2 className="script text-3xl sm:text-5xl text-[#C8B29E] mb-3">Forever Begins In</h2>
+                  <h2 className="cursive text-5xl sm:text-6xl text-[#C8B29E] mb-3 mt-2">Forever Begins In</h2>
                   <h3 className="serif text-[13px] uppercase tracking-[0.3em] text-[#3D2B1F] mb-10 font-bold">A Grace-filled occasion</h3>
 
                   <div className="flex flex-row items-center justify-center gap-6 w-full mb-8">
