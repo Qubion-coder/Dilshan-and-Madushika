@@ -171,7 +171,7 @@ export default function StoryApp() {
 
             <button
               onClick={() => setIntroPlayed(true)}
-              className="absolute bottom-10 px-6 py-2 bg-black/40 backdrop-blur-md text-white/90 rounded-full border border-white/20 text-sm tracking-[0.2em] uppercase transition-all hover:bg-white/20 z-10"
+              className="absolute bottom-10 left-1/2 -translate-x-1/2 px-6 py-2 bg-black/40 backdrop-blur-md text-white/90 rounded-full border border-white/20 text-sm tracking-[0.2em] uppercase transition-all hover:bg-white/20 z-10 whitespace-nowrap"
             >
               Skip Intro
             </button>
