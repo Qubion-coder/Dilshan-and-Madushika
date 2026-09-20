@@ -186,7 +186,7 @@ export default function StoryApp() {
         {/* --- SCREEN 1: Invite Details --- */}
         <section className="snap-section relative z-10 overflow-hidden bg-transparent">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -278,7 +278,7 @@ export default function StoryApp() {
         {/* --- SCREEN 1.5: Parents --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -318,7 +318,7 @@ export default function StoryApp() {
         {/* --- SCREEN 1.75: Countdown --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -377,7 +377,7 @@ export default function StoryApp() {
         {/* --- SCREEN 4: Timeline --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -417,7 +417,7 @@ export default function StoryApp() {
         {/* --- SCREEN 5: The Details --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0 }}
@@ -459,7 +459,7 @@ export default function StoryApp() {
         {/* --- SCREEN 6: RSVP --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -492,7 +492,7 @@ export default function StoryApp() {
         {/* --- SCREEN 7: Wishes --- */}
         <section className="snap-section relative z-10 overflow-hidden">
           <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+          <div className="absolute inset-0 overflow-visible flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
