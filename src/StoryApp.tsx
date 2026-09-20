@@ -147,7 +147,7 @@ export default function StoryApp() {
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 1.5 } }}
-            className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+            className="fixed inset-0 z-[100] h-[100dvh] w-[100vw] overflow-hidden bg-black"
           >
             <video
               ref={(el) => {
@@ -166,7 +166,7 @@ export default function StoryApp() {
               onLoadedMetadata={playIntroVideo}
               onCanPlay={playIntroVideo}
               onEnded={() => setIntroPlayed(true)}
-              className="w-full h-full object-fill pointer-events-none"
+              className="absolute inset-0 block h-full w-full object-cover pointer-events-none"
             />
 
             <button
