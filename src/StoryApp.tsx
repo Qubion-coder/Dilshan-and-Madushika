@@ -182,7 +182,7 @@ export default function StoryApp() {
                       WE CORDIALLY INVITE
                     </p>
                     <p className="script text-2xl sm:text-4xl text-[#3D2B1F] drop-shadow-sm mb-4 text-center px-4">
-                      {guestPrefix} {guestName}
+                      {guestPrefix ? `${guestPrefix} ${guestName}` : guestName}
                     </p>
                     <div className="h-px w-16 bg-[#3D2B1F]/50 mb-6"></div>
                     <p className="text-[12px] sm:text-sm uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-2 sm:mb-4">
