@@ -200,7 +200,7 @@ export default function StoryApp() {
                   </>
                 )}
 
-                <h1 className="script text-4xl sm:text-[5.5rem] text-[#2C2C2C] mb-8 sm:mb-12 drop-shadow-sm font-normal">
+                <h1 className="script text-6xl sm:text-[7rem] text-[#2C2C2C] mb-8 sm:mb-12 drop-shadow-sm font-normal">
                   Wedding
                 </h1>
 
