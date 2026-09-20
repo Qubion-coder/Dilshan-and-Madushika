@@ -141,12 +141,24 @@ export default function StoryApp() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
           >
             <video
-              ref={videoRef}
+              ref={(el) => {
+                if (el) {
+                  el.defaultMuted = true;
+                  el.muted = true;
+                }
+                videoRef.current = el;
+              }}
               src="/i_want_to_add_a_pink_touch_to.mp4"
               autoPlay
               muted
               playsInline
+              preload="auto"
               controls={false}
+              onLoadedData={() => {
+                if (videoRef.current) {
+                  videoRef.current.play().catch(e => console.error("Video play failed:", e));
+                }
+              }}
               onEnded={() => setIntroPlayed(true)}
               className="w-full h-full object-fill pointer-events-none"
             />
