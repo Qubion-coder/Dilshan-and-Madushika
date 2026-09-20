@@ -24,6 +24,15 @@ export default function StoryApp() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const playIntroVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.play().catch(() => undefined);
+  };
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -60,7 +69,7 @@ export default function StoryApp() {
         audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       }
       if (videoRef.current) {
-        videoRef.current.play().catch(e => console.error("Video play failed:", e));
+        playIntroVideo();
       }
     }
   }, [invitationOpened]);
@@ -154,11 +163,8 @@ export default function StoryApp() {
               playsInline
               preload="auto"
               controls={false}
-              onLoadedData={() => {
-                if (videoRef.current) {
-                  videoRef.current.play().catch(e => console.error("Video play failed:", e));
-                }
-              }}
+              onLoadedMetadata={playIntroVideo}
+              onCanPlay={playIntroVideo}
               onEnded={() => setIntroPlayed(true)}
               className="w-full h-full object-fill pointer-events-none"
             />
